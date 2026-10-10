@@ -26,3 +26,7 @@ para variables de entorno y pasos de ejecucion.
 RF08 (API + Angular consumiendo consulta y operacion de cambio) y CA03
 (estados HTTP 2xx/4xx coherentes) de la ficha PR01. **No** incluye RF09 (evento
 IoT simulado, Web 4.0) — ese es el siguiente incremento.
+
+## Nota
+Se usó IA como apoyo para redactar correctamente los README de cada módulo
+(`api-spring/README.md`, `frontend-angular/README.md`).
