@@ -1,0 +1,14 @@
+api-spring/target/
+*.class
+
+frontend-angular/node_modules/
+frontend-angular/dist/
+frontend-angular/.angular/
+
+.env
+*.local
+
+*.log
+
+docs/
+

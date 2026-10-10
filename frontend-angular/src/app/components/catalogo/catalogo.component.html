@@ -1,0 +1,39 @@
+<h2>Catalogo de productos (Web 3.0 - Angular + API Spring Boot)</h2>
+
+<p>
+  <button type="button" (click)="alternarFiltro()">
+    {{ soloAlerta ? 'Ver todos' : 'Ver solo en alerta (existencia < minimo)' }}
+  </button>
+</p>
+
+<p *ngIf="cargando">Cargando catalogo...</p>
+<p *ngIf="error" role="alert" class="mensaje-error">{{ error }}</p>
+
+<table *ngIf="!cargando && !error">
+  <caption>{{ soloAlerta ? 'Productos con existencia por debajo del minimo' : 'Todos los productos activos' }}</caption>
+  <thead>
+    <tr>
+      <th scope="col">Codigo</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Unidad</th>
+      <th scope="col">Existencia</th>
+      <th scope="col">Minimo</th>
+      <th scope="col">Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of productos" [class.fila-alerta]="p.alertaStockBajo">
+      <td>{{ p.codigo }}</td>
+      <td>{{ p.nombre }}</td>
+      <td>{{ p.nombreCategoria }}</td>
+      <td>{{ p.unidadMedida }}</td>
+      <td>{{ p.existencia }}</td>
+      <td>{{ p.minimoPermitido }}</td>
+      <td><strong *ngIf="p.alertaStockBajo">ALERTA: stock bajo</strong><span *ngIf="!p.alertaStockBajo">Normal</span></td>
+    </tr>
+    <tr *ngIf="productos.length === 0">
+      <td colspan="7">No hay productos que mostrar.</td>
+    </tr>
+  </tbody>
+</table>
